@@ -1,0 +1,801 @@
+/* =========================================================
+   1. RESET AND VARIABLES
+   ========================================================= */
+
+:root {
+    --primary: #0e7490;
+    --primary-dark: #0b5f75;
+    --primary-soft: #f0fdfa;
+
+    --white: #ffffff;
+    --heading: #0f172a;
+    --text: #475569;
+    --muted: #64748b;
+    --border: #dbe4ea;
+    --footer: #0f172a;
+
+    --heading-font: "Playfair Display", serif;
+    --body-font: "Inter", system-ui, sans-serif;
+
+    --container: 1120px;
+    --radius: 8px;
+
+    --shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    background: var(--white);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--heading);
+    font-family: var(--heading-font);
+    line-height: 1.15;
+}
+
+.container {
+    width: min(calc(100% - 48px), var(--container));
+    margin: 0 auto;
+}
+
+.section {
+    padding: 95px 0;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 54px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 14px;
+    font-size: clamp(34px, 4vw, 48px);
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =========================================================
+   2. BUTTONS
+   ========================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 11px 20px;
+
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.button:hover {
+    border-color: var(--primary-dark);
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.button-small {
+    min-height: 36px;
+    padding: 8px 18px;
+    font-size: 12px;
+}
+
+.button-outline {
+    background: transparent;
+    color: var(--primary);
+}
+
+.button-outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid #e9eef2;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 66px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--heading);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.logo i {
+    color: var(--primary);
+    font-size: 15px;
+}
+
+.navigation-list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.navigation-list a {
+    color: var(--heading);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.navigation-list a:hover {
+    color: var(--primary);
+}
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+
+.hero {
+    padding: 82px 0 90px;
+    background: var(--primary-soft);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+    align-items: center;
+    gap: 72px;
+}
+
+.hero-text {
+    max-width: 555px;
+}
+
+.hero-text h1 {
+    margin-bottom: 21px;
+    font-size: clamp(48px, 5.7vw, 67px);
+    letter-spacing: -1.6px;
+}
+
+.hero-description {
+    max-width: 535px;
+    margin-bottom: 26px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 475px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   5. TREATMENTS
+   ========================================================= */
+
+.treatments-section {
+    background: var(--white);
+}
+
+.treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.treatment-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.treatment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.treatment-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.treatment-card-content {
+    min-height: 168px;
+    padding: 20px 21px 22px;
+}
+
+.treatment-card h3 {
+    margin-bottom: 9px;
+    font-size: 20px;
+}
+
+.treatment-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   6. FEES
+   ========================================================= */
+
+.fees-section {
+    background: var(--white);
+}
+
+.fees-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+}
+
+.fees-card {
+    position: relative;
+    padding: 30px 26px 26px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--white);
+}
+
+.fees-card-featured {
+    border: 2px solid var(--primary);
+}
+
+.popular-label {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 5px 17px;
+
+    border-radius: 4px;
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.fees-card-header {
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.fees-card-header h3 {
+    margin-bottom: 4px;
+    font-size: 20px;
+}
+
+.fees-card-header p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.fees-list {
+    display: grid;
+    gap: 13px;
+}
+
+.fees-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    color: var(--text);
+    font-size: 12px;
+}
+
+.fees-list li span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fees-list i {
+    color: var(--primary);
+    font-size: 10px;
+}
+
+.fees-list strong {
+    color: var(--heading);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.fees-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-top: 27px;
+    padding: 15px 18px;
+
+    border-radius: 6px;
+    background: var(--primary-soft);
+}
+
+.fees-note i {
+    margin-top: 4px;
+    color: var(--primary);
+}
+
+.fees-note p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* =========================================================
+   7. CONTACT
+   ========================================================= */
+
+.contact-section {
+    background: var(--primary-soft);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+    gap: 34px;
+
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    padding: 30px;
+
+    border: 1px solid rgba(14, 116, 144, 0.12);
+    border-radius: 10px;
+
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--heading);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 11px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    outline: none;
+
+    background: var(--white);
+    color: var(--heading);
+
+    font-size: 12px;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 42px;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.09);
+}
+
+.form-submit {
+    width: 100%;
+}
+
+.form-message {
+    min-height: 20px;
+    margin-top: 10px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(14, 116, 144, 0.12);
+    border-radius: 8px;
+
+    background: var(--white);
+}
+
+.contact-card > i {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 13px;
+}
+
+.contact-card h3 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.contact-card p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+
+.site-footer {
+    padding-top: 64px;
+    background: var(--footer);
+    color: #cbd5e1;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.45fr 0.7fr 0.9fr 0.9fr;
+    gap: 50px;
+    padding-bottom: 48px;
+}
+
+.logo-footer {
+    margin-bottom: 16px;
+    color: var(--white);
+}
+
+.footer-brand p {
+    max-width: 300px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.footer-column h3 {
+    margin-bottom: 16px;
+    color: var(--white);
+
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.footer-column ul {
+    display: grid;
+    gap: 9px;
+}
+
+.footer-column a {
+    color: #94a3b8;
+    font-size: 10px;
+}
+
+.footer-column a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #64748b;
+    font-size: 9px;
+}
+
+/* =========================================================
+   9. SCROLL TO TOP
+   ========================================================= */
+
+.scroll-to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 900;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 39px;
+    height: 39px;
+
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+
+    box-shadow: var(--shadow);
+}
+
+.scroll-to-top.visible {
+    display: flex;
+}
+
+/* =========================================================
+   10. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 48px;
+    }
+
+    .hero-image {
+        height: 420px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .section {
+        padding: 75px 0;
+    }
+
+    .main-navigation {
+        display: none;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 420px;
+    }
+
+    .treatments-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fees-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: min(calc(100% - 28px), var(--container));
+    }
+
+    .header-content {
+        min-height: 62px;
+    }
+
+    .header-content > .button {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 60px 0 68px;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .hero-image {
+        height: 340px;
+    }
+
+    .treatments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .treatment-card img {
+        height: 225px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+.scroll-to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #0e7490;
+    color: #ffffff;
+
+    font-size: 15px;
+    cursor: pointer;
+
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.2);
+}
+
+.scroll-to-top.visible {
+    display: flex;
+}
